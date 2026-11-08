@@ -1,0 +1,120 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "type": "text2sql",
+      "difficulty": "easy",
+      "question": "How many portfolios do we have in total?",
+      "ground_truth": {
+        "sql_query": "SELECT COUNT(*) FROM portfolios;",
+        "expected_result_type": "single_value",
+        "explanation": "Simple COUNT query on portfolios table"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text2sql",
+      "difficulty": "easy",
+      "question": "What are the names of all active portfolios?",
+      "ground_truth": {
+        "sql_query": "SELECT portfolio_name FROM portfolios WHERE status = 'Active';",
+        "expected_result_type": "list",
+        "explanation": "Simple SELECT with WHERE clause filtering by status"
+      }
+    },
+    {
+      "id": 3,
+      "type": "text2sql",
+      "difficulty": "easy",
+      "question": "Which securities are in the Technology sector?",
+      "ground_truth": {
+        "sql_query": "SELECT s.symbol, s.company_name FROM securities s JOIN sectors sec ON s.sector_id = sec.sector_id WHERE sec.sector_name = 'Technology';",
+        "expected_result_type": "table",
+        "explanation": "JOIN between securities and sectors tables with simple WHERE filter"
+      }
+    },
+    {
+      "id": 4,
+      "type": "text2sql",
+      "difficulty": "medium",
+      "question": "What is the total Assets Under Management (AUM) for portfolios with high target risk level?",
+      "ground_truth": {
+        "sql_query": "SELECT SUM(total_aum) FROM portfolios WHERE target_risk_level = 'High';",
+        "expected_result_type": "single_value",
+        "explanation": "Aggregation function with WHERE clause filtering by risk level"
+      }
+    },
+    {
+      "id": 5,
+      "type": "text2sql",
+      "difficulty": "medium",
+      "question": "Show me the top 5 holdings by cost basis in the Growth Equity Fund",
+      "ground_truth": {
+        "sql_query": "SELECT h.holding_id, s.symbol, s.company_name, h.quantity, h.cost_basis FROM holdings h JOIN securities s ON h.security_id = s.security_id JOIN portfolios p ON h.portfolio_id = p.portfolio_id WHERE p.portfolio_name = 'Growth Equity Fund' ORDER BY h.cost_basis DESC LIMIT 5;",
+        "expected_result_type": "table",
+        "explanation": "Multiple JOINs with ORDER BY and LIMIT for top N results"
+      }
+    },
+    {
+      "id": 6,
+      "type": "text2sql",
+      "difficulty": "medium",
+      "question": "What is the average current price of securities in each sector?",
+      "ground_truth": {
+        "sql_query": "SELECT sec.sector_name, AVG(s.current_price) as avg_price FROM securities s JOIN sectors sec ON s.sector_id = sec.sector_id GROUP BY sec.sector_name ORDER BY avg_price DESC;",
+        "expected_result_type": "table",
+        "explanation": "JOIN with GROUP BY aggregation and ordering"
+      }
+    },
+    {
+      "id": 7,
+      "type": "text2sql",
+      "difficulty": "hard",
+      "question": "For each portfolio, show the total value of Technology sector holdings and what percentage it represents of the total portfolio value",
+      "ground_truth": {
+        "sql_query": "WITH portfolio_tech_value AS (SELECT p.portfolio_id, p.portfolio_name, SUM(h.quantity * s.current_price) as tech_value FROM portfolios p JOIN holdings h ON p.portfolio_id = h.portfolio_id JOIN securities s ON h.security_id = s.security_id JOIN sectors sec ON s.sector_id = sec.sector_id WHERE sec.sector_name = 'Technology' GROUP BY p.portfolio_id, p.portfolio_name), portfolio_total_value AS (SELECT p.portfolio_id, SUM(h.quantity * s.current_price) as total_value FROM portfolios p JOIN holdings h ON p.portfolio_id = h.portfolio_id JOIN securities s ON h.security_id = s.security_id GROUP BY p.portfolio_id) SELECT ptv.portfolio_name, ptv.tech_value, ptv2.total_value, ROUND((ptv.tech_value / ptv2.total_value) * 100, 2) as tech_percentage FROM portfolio_tech_value ptv JOIN portfolio_total_value ptv2 ON ptv.portfolio_id = ptv2.portfolio_id ORDER BY tech_percentage DESC;",
+        "expected_result_type": "table",
+        "explanation": "Complex query using CTEs, multiple JOINs, aggregations, and percentage calculations"
+      }
+    },
+    {
+      "id": 8,
+      "type": "text2sql",
+      "difficulty": "hard",
+      "question": "Find portfolios that have holdings in more than 5 different sectors and show their diversification metrics",
+      "ground_truth": {
+        "sql_query": "WITH portfolio_sector_count AS (SELECT p.portfolio_id, p.portfolio_name, COUNT(DISTINCT sec.sector_id) as sector_count FROM portfolios p JOIN holdings h ON p.portfolio_id = h.portfolio_id JOIN securities s ON h.security_id = s.security_id JOIN sectors sec ON s.sector_id = sec.sector_id WHERE s.asset_type = 'Stock' GROUP BY p.portfolio_id, p.portfolio_name HAVING COUNT(DISTINCT sec.sector_id) > 5), portfolio_holdings_count AS (SELECT p.portfolio_id, COUNT(h.holding_id) as total_holdings FROM portfolios p JOIN holdings h ON p.portfolio_id = h.portfolio_id GROUP BY p.portfolio_id) SELECT psc.portfolio_name, psc.sector_count, phc.total_holdings, ROUND(CAST(psc.sector_count AS REAL) / phc.total_holdings, 3) as diversification_ratio FROM portfolio_sector_count psc JOIN portfolio_holdings_count phc ON psc.portfolio_id = phc.portfolio_id ORDER BY diversification_ratio DESC;",
+        "expected_result_type": "table",
+        "explanation": "Advanced query with multiple CTEs, HAVING clause, and calculated diversification metrics"
+      }
+    },
+    {
+      "id": 9,
+      "type": "exposure_calculator",
+      "difficulty": "medium",
+      "question": "What are the sector exposures for the Tech Innovation Fund?",
+      "ground_truth": {
+        "tool_name": "exposure_calculator",
+        "parameters": {
+          "portfolio_name": "Tech Innovation Fund"
+        },
+        "expected_result_type": "sector_exposure_breakdown",
+        "explanation": "Calculate sector exposures by combining holding weights with security sector mappings, excluding bonds"
+      }
+    },
+    {
+      "id": 10,
+      "type": "exposure_calculator",
+      "difficulty": "medium",
+      "question": "Calculate the sector exposure breakdown for international equity",
+      "ground_truth": {
+        "tool_name": "exposure_calculator",
+        "parameters": {
+          "portfolio_name": "International Equity Fund"
+        },
+        "expected_result_type": "sector_exposure_breakdown",
+        "explanation": "Calculate sector exposures using portfolio ID as identifier, focusing only on equity holdings"
+      }
+    }
+  ]
+}

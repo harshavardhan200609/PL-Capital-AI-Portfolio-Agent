@@ -1,0 +1,14 @@
+portfolio_id,portfolio_name,creation_date,target_risk_level,total_aum,strategy_type,benchmark_index,status
+1,Growth Equity Fund,2023-01-15,High,25000000.00,Growth,SP500,Active
+2,Conservative Income Fund,2023-02-01,Low,18500000.00,Income,AGG,Active
+3,Tech Innovation Fund,2023-01-20,High,32000000.00,Sector,QQQ,Active
+4,Balanced Portfolio,2023-03-01,Medium,22000000.00,Balanced,60/40,Active
+5,ESG Sustainable Fund,2023-03-15,Medium,15000000.00,ESG,MSCI_ESG,Active
+6,Small Cap Value Fund,2023-04-01,High,12000000.00,Value,Russell2000,Active
+7,International Equity Fund,2023-04-15,Medium,28000000.00,International,EAFE,Active
+8,Fixed Income Plus,2023-05-01,Low,35000000.00,Income,BARC_AGG,Active
+9,Dividend Aristocrats Fund,2023-05-15,Low,20000000.00,Dividend,SPYD,Active
+10,Emerging Markets Fund,2023-06-01,High,16000000.00,International,VWO,Active
+11,Total Stock Market Index Fund,2023-07-01,Medium,45000000.00,Index,TOTAL_STOCK,Passive
+12,Total Bond Market Index Fund,2023-07-15,Low,30000000.00,Index,TOTAL_BOND,Passive
+13,Total International Index Fund,2023-08-01,Medium,25000000.00,Index,TOTAL_INTL,Passive

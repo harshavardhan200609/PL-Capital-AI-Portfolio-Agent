@@ -1,0 +1,31 @@
+security_id,symbol,company_name,asset_type,sector_id,market_cap,current_price,currency,exchange,country,listing_date,maturity_date,coupon_rate
+1,AAPL,Apple Inc.,Stock,1,2800000,185.50,USD,NASDAQ,US,1980-12-12,,
+2,MSFT,Microsoft Corporation,Stock,1,2750000,415.26,USD,NASDAQ,US,1986-03-13,,
+3,GOOGL,Alphabet Inc.,Stock,1,1650000,2750.80,USD,NASDAQ,US,2004-08-19,,
+4,AMZN,Amazon.com Inc.,Stock,2,1420000,3380.00,USD,NASDAQ,US,1997-05-15,,
+5,TSLA,Tesla Inc.,Stock,3,850000,248.50,USD,NASDAQ,US,2010-06-29,,
+6,META,Meta Platforms Inc.,Stock,1,750000,325.20,USD,NASDAQ,US,2012-05-18,,
+7,NVDA,NVIDIA Corporation,Stock,1,1800000,875.30,USD,NASDAQ,US,1999-01-22,,
+8,JPM,JPMorgan Chase & Co.,Stock,4,425000,145.20,USD,NYSE,US,1971-01-01,,
+9,JNJ,Johnson & Johnson,Stock,5,440000,165.80,USD,NYSE,US,1944-09-25,,
+10,V,Visa Inc.,Stock,4,520000,245.30,USD,NYSE,US,2008-03-19,,
+11,PG,Procter & Gamble Co.,Stock,6,370000,155.90,USD,NYSE,US,1946-10-01,,
+12,UNH,UnitedHealth Group Inc.,Stock,5,485000,520.75,USD,NYSE,US,1984-10-17,,
+13,HD,Home Depot Inc.,Stock,6,330000,315.85,USD,NYSE,US,1981-09-22,,
+14,MA,Mastercard Inc.,Stock,4,365000,385.40,USD,NYSE,US,2006-05-25,,
+15,PFE,Pfizer Inc.,Stock,5,210000,35.50,USD,NYSE,US,1972-06-01,,
+16,KO,Coca-Cola Company,Stock,6,250000,58.40,USD,NYSE,US,1950-01-01,,
+17,ABBV,AbbVie Inc.,Stock,5,280000,158.60,USD,NYSE,US,2013-01-02,,
+18,AVGO,Broadcom Inc.,Stock,1,620000,875.15,USD,NASDAQ,US,2009-08-06,,
+19,CRM,Salesforce Inc.,Stock,1,195000,210.90,USD,NYSE,US,2004-06-23,,
+20,XOM,Exxon Mobil Corporation,Stock,7,410000,98.75,USD,NYSE,US,1972-08-16,,
+21,WMT,Walmart Inc.,Stock,6,480000,165.30,USD,NYSE,US,1972-08-25,,
+22,LLY,Eli Lilly and Company,Stock,5,520000,545.20,USD,NYSE,US,1970-07-15,,
+23,BAC,Bank of America Corp.,Stock,4,245000,28.95,USD,NYSE,US,1972-01-01,,
+24,ORCL,Oracle Corporation,Stock,1,315000,115.85,USD,NYSE,US,1986-03-12,,
+25,CVX,Chevron Corporation,Stock,7,295000,158.40,USD,NYSE,US,1921-09-01,,
+26,UST-10Y,US Treasury 10-Year Bond,Bond,,,"102.50",USD,TREASURY,US,2020-01-15,2030-01-15,2.875
+27,UST-5Y,US Treasury 5-Year Bond,Bond,,,"100.25",USD,TREASURY,US,2020-03-01,2025-03-01,1.625
+28,UST-2Y,US Treasury 2-Year Bond,Bond,,,"99.75",USD,TREASURY,US,2022-01-15,2024-01-15,2.250
+29,CORP-AAA-5Y,AAA Corporate Bond 5-Year,Bond,,,"98.50",USD,CORP,US,2021-06-01,2026-06-01,3.125
+30,CORP-A-10Y,A-Rated Corporate Bond 10-Year,Bond,,,"96.75",USD,CORP,US,2020-09-15,2030-09-15,4.250

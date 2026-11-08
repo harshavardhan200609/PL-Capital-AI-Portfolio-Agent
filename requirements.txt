@@ -1,0 +1,5 @@
+# Core runtime dependencies. sqlite3, argparse, logging, and unittest are built in.
+google-genai>=0.10.0
+openai>=1.0.0
+python-dotenv>=1.0.0
+pandas>=2.0.0

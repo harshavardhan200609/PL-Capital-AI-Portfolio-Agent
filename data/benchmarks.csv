@@ -1,0 +1,14 @@
+benchmark_id,benchmark_name,benchmark_symbol,benchmark_type,description,inception_date
+1,S&P 500 Index,SP500,Equity,Large-cap US equity benchmark,1957-03-04
+2,Bloomberg Aggregate Bond Index,AGG,Fixed Income,US investment grade bond benchmark,1976-01-01
+3,NASDAQ-100 Index,QQQ,Technology,Technology-heavy equity benchmark,1985-01-31
+4,60/40 Portfolio,60/40,Balanced,60% stocks 40% bonds allocation,1926-01-01
+5,MSCI KLD 400 Social Index,MSCI_ESG,ESG,Environmental and social governance benchmark,1990-05-01
+6,Russell 2000 Index,Russell2000,Small Cap,Small-cap US equity benchmark,1984-01-01
+7,MSCI EAFE Index,EAFE,International,Developed international equity benchmark,1969-12-31
+8,Bloomberg Barclays Aggregate,BARC_AGG,Fixed Income,Broad US bond market benchmark,1976-01-01
+9,SPDR S&P Dividend ETF,SPYD,Dividend,High dividend yield equity benchmark,2015-10-21
+10,Vanguard Emerging Markets ETF,VWO,Emerging Markets,Emerging markets equity benchmark,2005-03-04
+11,Total Stock Market Index,TOTAL_STOCK,Broad Market,Total US stock market benchmark,1992-04-27
+12,Total Bond Market Index,TOTAL_BOND,Broad Fixed Income,Total US bond market benchmark,1986-12-11
+13,Total International Index,TOTAL_INTL,International,Total international stock market benchmark,1996-05-31
